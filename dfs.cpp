@@ -2,13 +2,12 @@
 using namespace std;
 void dfs(map<int,vector<int> > g,int n,int i,int vis[])
 {
-   if(vis[i]==0)
+   if(vis[i]==0) /*only visiting the not visited vertex*/
    { 
        vis[i]=1;
        cout<<i<<" ";
-    for(auto j=g[i].begin();j!=g[i].end();j++)
-    {
-        
+    for(auto j=g[i].begin();j!=g[i].end();j++) 
+    { 
         dfs(g,n,*j,vis);
     }
    }
@@ -28,9 +27,9 @@ int main()
     {
         int a,b;
         cin>>a>>b;
-        g[a].push_back(b);
+        g[a].push_back(b); 
     }
     int vis[n];
-    fill(vis,vis+n,0);
+    fill(vis,vis+n,0); /*initially visitied array is assigned to zero*/
     dfs(g,n,0,vis);
 }
